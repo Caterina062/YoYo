@@ -13,8 +13,11 @@
     "format": "prettier --write --experimental-cli src/"
   },
   "dependencies": {
+    "axios": "^1.21.0",
+    "bootstrap": "^5.3.8",
     "vue": "^3.5.42",
-    "vue-router": "^5.3.1"
+    "vue-router": "^5.4.0",
+    "vue-youtube-embed": "^2.2.2"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
