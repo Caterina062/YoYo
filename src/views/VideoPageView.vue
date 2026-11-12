@@ -1,14 +1,10 @@
 <script setup>
-import { RouterLink, useRoute } from 'vue-router'
-import { ref, onMounted, computed } from 'vue'
+import { useRoute } from 'vue-router'
+import { onMounted, computed } from 'vue'
 import axios from 'axios'
-
-const API_URL =
-  'https://raw.githubusercontent.com/Anita-Liberatore/yoyo-friends-api/master/videos.json'
+import { useVideo } from '@/composables/useVideos'
 const route = useRoute()
-const video = ref(null)
-const loading = ref(false)
-const error = ref('')
+const { video, loading, error, getVideo } = useVideo(route.params.id)
 
 const embedUrl = computed(() => {
   if (!video.value) return ''
@@ -18,28 +14,7 @@ const embedUrl = computed(() => {
   return video.value.url || ''
 })
 
-const getVideo = async () => {
-  loading.value = true
-  error.value = ''
-
-  try {
-    const response = await axios.get(API_URL)
-    video.value = response.data.find((v) => String(v.id) === String(route.params.id))
-
-    if (!video.value) {
-      error.value = 'Video non trovato.'
-    }
-  } catch (err) {
-    console.error('Errore nel recupero del video: ', err)
-    error.value = 'Non è stato possibile caricare il video. Riprova più tardi'
-  } finally {
-    loading.value = false
-  }
-}
-
-onMounted(() => {
-  getVideo()
-})
+onMounted(getVideo)
 </script>
 
 <template>
@@ -115,6 +90,10 @@ onMounted(() => {
   border: none;
   object-fit: cover;
 }
+.info {
+  max-width: 900px;
+  margin-top: 25px;
+}
 
 .info h1 {
   margin: 0 0 10px;
@@ -131,9 +110,9 @@ onMounted(() => {
   font-size: 14px;
   color: #879587;
 }
-
 .description {
   margin-top: 20px;
+  font-size: 16px;
   line-height: 1.8;
   color: #69766a;
 }
