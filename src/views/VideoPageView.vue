@@ -1,8 +1,9 @@
 <script setup>
 import { useRoute } from 'vue-router'
 import { onMounted, computed } from 'vue'
-import axios from 'axios'
 import { useVideo } from '@/composables/useVideos'
+import CommentSection from '@/components/CommentSection.vue'
+
 const route = useRoute()
 const { video, loading, error, getVideo } = useVideo(route.params.id)
 
@@ -19,7 +20,7 @@ onMounted(getVideo)
 
 <template>
   <main class="video-page">
-    <RouterLink to="/" class="bacl-link">← Torna alla Home</RouterLink>
+    <RouterLink to="/" class="back-link">← Torna alla Home</RouterLink>
     <p v-if="loading" class="status-message">Stiamo caricando il video...</p>
     <p v-else-if="error" class="error-message">{{ error }}</p>
 
@@ -47,6 +48,7 @@ onMounted(getVideo)
         <p class="author">Di {{ video.author }}</p>
         <span class="duration">Durata: {{ video.duration }}</span>
         <p class="description">{{ video.description }}</p>
+        <CommentSection :key="video.id" :video-id="video.id" />
       </div>
     </article>
   </main>
