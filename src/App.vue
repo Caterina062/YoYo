@@ -5,13 +5,7 @@ import { RouterLink, RouterView } from 'vue-router'
 <template>
   <div class="container">
     <header class="navbar">
-      <a href="#" class="logo">YoYo<span>.</span></a>
-      <RouterLink to="/">
-        <p>Home</p>
-      </RouterLink>
-      <RouterLink to="/about">
-        <p>About</p>
-      </RouterLink>
+      <RouterLink to="/" class="logo">YoYo <span>- Friends.</span> </RouterLink>
     </header>
     <RouterView />
   </div>
@@ -26,16 +20,17 @@ import { RouterLink, RouterView } from 'vue-router'
   align-items: center;
   justify-content: space-between;
   padding: 20px 8%;
-  background-color: #faf9f6;
+  background-color: #fdfcfc;
 }
 
 .logo {
   font-size: 30px;
   font-weight: 900;
-  color: #354b3c;
+  color: #000000;
   text-decoration: none;
 }
 .logo span {
-  color: #c98269;
+  color: #773b8a;
+  font-weight: 600;
 }
 </style>

@@ -87,7 +87,7 @@ const openVideo = () => {
   height: 48px;
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.9);
-  color: #354b3c;
+  color: #46354b;
   font-size: 18px;
 }
 
@@ -98,11 +98,11 @@ const openVideo = () => {
 .video-info h3 {
   margin: 0 0 10px;
   font-size: 18px;
-  color: #354b3c;
+  color: #4a354b;
 }
 
 .video-description {
-  color: #788477;
+  color: #827784;
   font-size: 13px;
   line-height: 1.6;
 }

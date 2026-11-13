@@ -77,7 +77,7 @@ const addComment = () => {
 .comments h2 {
   margin: 0 0 20px;
   font-size: 24px;
-  color: #354b3c;
+  color: #49354b;
 }
 
 .comment-list {
@@ -104,24 +104,24 @@ const addComment = () => {
 }
 
 .comment-header strong {
-  color: #354b3c;
+  color: #4b354b;
 }
 
 .comment-header span {
-  color: #879587;
+  color: #928795;
   font-size: 12px;
 }
 
 .comment p {
   margin: 0;
-  color: #69766a;
+  color: #766976;
   line-height: 1.6;
   overflow-wrap: anywhere;
 }
 
 .no-comments {
   margin-bottom: 30px;
-  color: #879587;
+  color: #958794;
 }
 
 .comment-form {
@@ -139,13 +139,13 @@ const addComment = () => {
   background-color: #fff;
   font-family: inherit;
   font-size: 15px;
-  color: #354b3c;
+  color: #4b354a;
   resize: vertical;
 }
 
 .comment-form input:focus,
 .comment-form textarea:focus {
-  outline: 2px solid #c98269;
+  outline: 2px solid #773b8a;
   border-color: transparent;
 }
 
@@ -154,7 +154,7 @@ const addComment = () => {
   padding: 12px 26px;
   border: none;
   border-radius: 30px;
-  background-color: #354b3c;
+  background-color: #48354b;
   color: white;
   font-weight: 700;
   cursor: pointer;
@@ -162,7 +162,7 @@ const addComment = () => {
 }
 
 .comment-form button:hover:not(:disabled) {
-  background-color: #536d59;
+  background-color: #69536d;
 }
 
 .comment-form button:disabled {

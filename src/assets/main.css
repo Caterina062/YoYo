@@ -35,6 +35,9 @@ a,
 }
 */
 
+* {
+  box-sizing: border-box;
+}
 a {
   text-decoration: none;
   transition: 0.3s;
