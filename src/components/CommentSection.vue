@@ -9,26 +9,16 @@ const props = defineProps({
   },
 })
 
-const storageKey = computed(() => `comments-${props.videoId}`)
-const comments = ref([])
+const storageKey = `comments-${props.videoId}`
 const author = ref('')
 const text = ref('')
 
-// carico i commenti salvati, altrimenti quelli di esempio del video
-const loadComments = () => {
-  const saved = localStorage.getItem(storageKey.value)
-  comments.value = saved ? JSON.parse(saved) : [...(seedComments[props.videoId] ?? [])]
-}
-loadComments()
-
-// se cambia il video, ricarico i suoi commenti
-watch(() => props.videoId, loadComments)
-
-// salvo ogni volta che la lista cambia
+const saved = JSON.parse(localStorage.getItem(storageKey) || '[]')
+const comments = ref(saved.length ? saved : [...(seedComments[props.videoId] ?? [])])
 watch(
   comments,
   (value) => {
-    localStorage.setItem(storageKey.value, JSON.stringify(value))
+    localStorage.setItem(storageKey, JSON.stringify(value))
   },
   { deep: true },
 )
